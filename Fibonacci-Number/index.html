@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Factorial</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+        <script src="http://visjs.org/dist/vis.js"></script>
+        <script src="Fibonacci.js"></script>
+    </head>
+    <header>
+        <div class="container-fluid mt-5">
+            <h1 class="text-center display-4 m-5">Fibonacci</h1>
+        </div>
+    </header>
+    <body>
+        <div class="container mt-5">
+            <h3 id="valueShow" class="text-center m-3">0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...</h3>
+            <input type="range" class="form-control-range" id="formControlRange" step="1" value="0" max="20" onchange="updateTextInput(this.value)">
+        </div>
+    </body>
+</html>
+
