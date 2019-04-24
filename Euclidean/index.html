@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Levenshtein Distance</title>
+        <title>Euclidean</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="Levenshtein-Distance.js"></script>
+        <script src="Euclidean.js"></script>
     </head>
     <header>
         <div class="container-fluid mt-5">
-            <h1 class="text-center display-4 m-5">Levenshtein Distance</h1>
+            <h1 class="text-center display-4 m-5">Euclidean</h1>
         </div>
     </header>
     <body>
@@ -15,15 +15,15 @@
             <div class="row">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">Word-A and Word-B</span>
+                        <span class="input-group-text">Num-A and Num-B</span>
                     </div>
-                    <input type="text" id="wordA" class="form-control">
-                    <input type="text" id="wordB" class="form-control">
-                    <button type="button" class="btn btn-primary" onclick="clickToCalculateDistance()">Check</button>
+                    <input type="number" id="NumA" class="form-control">
+                    <input type="unmber" id="NumB" class="form-control">
+                    <button type="button" class="btn btn-primary" onclick="clickToCalculateGCD()">Check</button>
                 </div>
             </div>
             <div class="row mt-5">
-                <h3 id="distanceShow">Distance:</h3>
+                <h3 id="distanceShow">GCD:</h3>
             </div>
         </div>
     </body>
