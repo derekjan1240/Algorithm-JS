@@ -8,13 +8,13 @@ function euclidean(numA, numB){
     return numA%numB==0? numB: euclidean(numB, numA%numB);
 }
 
-function clickToCalculateGCD(){
-    
+function clickToCalculateGCDnLCM(){
     const numA = document.getElementById('NumA');
     const numB = document.getElementById('NumB');
     const distanceShow = document.getElementById('distanceShow');
 
-    distanceShow.innerHTML = `GCD: ${euclidean(numA.value, numB.value)}`;
-}
+    let GCD = euclidean(numA.value, numB.value),
+        LCM = Math.abs(numA.value*numB.value)/GCD;
 
-console.log(euclidean(0,143));
+    distanceShow.innerHTML = `GCD: ${GCD} <br> LCM: ${LCM}`;
+}
