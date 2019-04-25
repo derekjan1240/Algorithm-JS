@@ -30,7 +30,7 @@ function levenshteinDistance(a, b){
     }
     console.log(matrix);
 
-    const distance = matrix[a.length][b.length];
+    const distance = matrix[b.length][a.length];
     return distance;
 }
 
