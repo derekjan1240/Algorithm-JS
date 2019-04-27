@@ -73,9 +73,12 @@ class LinkedList{
     }
 
     search(data){
-        let position = this.toArray().indexOf(data)+1;
+        // let position = this.toArray().indexOf(data)+1;
+        let position = getAllIndexes(this.toArray(), data);
 
-        this.hintMsg(`${data} is at ${position}th`);
+        this.hintMsg(`${data} at ${position}th`);
+
+        return position;
     }
 
     // delete method
@@ -149,13 +152,18 @@ class LinkedList{
 
     reverse(){
         let arr = this.toArray();
-        this.head = null;
-        this.size = 0;
+        this.clear();
         console.log('\nStart reverse:')
         arr.forEach((e)=>{
             this.insertAtBeginning(e) 
         });
         this.hintMsg('Reverse List')
+    }
+
+    //clear lsit
+    clear(){
+        this.head = null;
+        this.size = 0;
     }
 
     // Test Msg
@@ -165,33 +173,117 @@ class LinkedList{
     }
 };
 
+function getAllIndexes(arr, val) {
+    let indexes = [], i = -1;
+    while ((i = arr.indexOf(val, i+1)) != -1){
+        indexes.push(i+1);
+    }
+    return indexes;
+}
 
-
-// create list
+// create init list
 let list = new LinkedList();
 
-//test
-list.insertAtBeginning('B');
-console.log(list.size);
-list.deleteHead();
-console.log(list.size);
-list.deleteTail();
-console.log(list.size);
+// test
 list.insertAtBeginning('A');
-console.log(list.size);
-list.insertAtTail('C');
-console.log(list.size);
-list.insertAt('X');
-console.log(list.size);
-list.insertAt('D');
-console.log(list.size);
-list.insertAt('E');
-console.log(list.size);
-list.deleteTail();
-console.log(list.size);
-list.deleteNode('X');
-console.log(list.size);
-list.reverse();
-console.log(list.size);
+list.insertAtBeginning('A');
+list.insertAtBeginning('A');
+list.search('A');
+list.clear()
+
+/* click function*/
+function cInsertAtBeginning(){
+    let insertNode = document.getElementById('insertNode');
+
+    if(insertNode.value){
+        list.insertAtBeginning(insertNode.value);
+        drawGraph();
+        insertNode.value ='';
+    }else{
+        console.log('Node doesn,t set!')
+    }
+}
+
+function cInsertAtTail(){
+    let insertNode = document.getElementById('insertNode');
+
+    if(insertNode.value){
+        list.insertAtTail(insertNode.value);
+        drawGraph();
+        insertNode.value='';
+    }else{
+        console.log('Node doesn,t set!')
+    }    
+}
+
+function cInsertAt(){
+    let insertNode = document.getElementById('insertNode');
+    let insertPosition = document.getElementById('insertPosition');
+
+    if(insertNode.value){
+        if(insertPosition.value){
+            list.insertAt(insertNode.value, insertPosition.value);
+            drawGraph();
+            insertNode.value ='';
+            insertPosition.value='';
+        }else{
+            list.insertAt(insertNode.value);
+            drawGraph();
+            insertNode.value='';
+        }
+    }else{
+        console.log('Node doesn,t set!')
+    }
+}
+
+function cDeleteBeginning(){
+    list.deleteHead();
+    drawGraph();
+}
+
+function cDeleteTail(){
+    list.deleteTail();
+    drawGraph();
+}
+
+function cDeleteNode(){
+    let deleteNode = document.getElementById('deleteNode');
+    if(deleteNode.value){
+        list.deleteNode(deleteNode.value);
+        drawGraph();
+        deleteNode.value='';
+    }else{
+        console.log('Node doesn,t set');
+    }
+    
+}
+
+function cSearchNode(){
+    let searchNode = document.getElementById('searchNode');
+    if(searchNode.value){
+        let position = list.search(searchNode.value);
+        alert(`${searchNode.value} at ${position} position of list !`);
+        searchNode.value='';
+    }else{
+        console.log('Node doesn,t set');
+    }
+}
+
+
+function drawGraph(){
+    const results = list.toArray();
+    const Graph = document.getElementById('list');
+    
+    // clear list
+    Graph.innerHTML='';
+    // draw list
+    for (let j = 0; j < results.length; j++) {
+        let node = document.createElement("td");
+        let textnode = document.createTextNode(results[j]);
+        node.appendChild(textnode);
+        Graph.appendChild(node);
+    }
+}
+
 
 

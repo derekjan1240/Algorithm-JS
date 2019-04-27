@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> Linked List</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="LinkedList.js"></script>
+    </head>
+    <header>
+        <div class="container-fluid m-3">
+            <h1 class="text-center display-5">Linked List</h1>
+        </div>
+    </header>
+    <body>
+        <div class="container mt-5 text-center">
+            <!-- List Display -->
+            <div class="container mb-5">
+                <table class="table table-bordered p-5">
+                    <tr id="list">
+                        <td>List will show here!</td>
+                    </tr>
+                </table>
+            </div>
+            <!-- method -->
+            <div class="container mt-5">
+                <div class="row">
+                    <!-- Insert -->
+                    <div class="col m-3">
+                        <div class="row">
+                            <div class="alert alert-info container-fluid" role="alert">
+                                Insert
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Node</span>
+                                </div>
+                                <input id="insertNode" type="text" class="form-control">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Position</span>
+                                </div>
+                                <input id="insertPosition" type="text" class="form-control">
+                            </div>
+                                <div class="col"><button type="button" class="btn btn-info btn-block" onclick="cInsertAtBeginning()">Beginning</button></div>
+                                <div class="col"><button type="button" class="btn btn-info btn-block" onclick="cInsertAtTail()">Tail</button></div>
+                                <div class="col"><button type="button" class="btn btn-info btn-block" onclick="cInsertAt()">Random/N</button></div>
+                        </div>
+                    </div>
+                    <!-- Delete -->
+                    <div class="col m-3">
+                        <div class="row">
+                            <div class="alert alert-danger container-fluid" role="alert">
+                                Delete
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Node</span>
+                                </div>
+                                <input id="deleteNode" type="text" class="form-control">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Position</span>
+                                </div>
+                                <input id="deletePosition" type="text" class="form-control">
+                            </div>
+                            <div class="col"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteBeginning()">Beginning</button></div>
+                            <div class="col"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteTail()">Tail</button></div>
+                            <div class="col"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteNode()">Node/N</button></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="row">
+                    <!-- Search -->
+                    <div class="col mt-5">
+                        <div class="row">
+                            <div class="alert alert-success container-fluid" role="alert">
+                                Search
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Node</span>
+                                </div>
+                                <input id="searchNode" type="text" class="form-control">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-success btn-block" onclick="cSearchNode()">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <footer class="m-5"></footer>
+</html>
+
+<style>
+    body{
+        background: #ecf0f1;
+    }
+    table{
+        background: #34495e;
+    }
+    td{
+        font-size: 20px;
+        font-weight: bold;
+        color: aliceblue;
+    }
+</style>
