@@ -37,13 +37,14 @@
                                 </div>
                                 <input id="insertNode" type="text" class="form-control">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Position</span>
+                                    <span class="input-group-text" id="basic-addon1">Nth</span>
                                 </div>
                                 <input id="insertPosition" type="text" class="form-control">
                             </div>
-                                <div class="col"><button type="button" class="btn btn-info btn-block" onclick="cInsertAtBeginning()">Beginning</button></div>
-                                <div class="col"><button type="button" class="btn btn-info btn-block" onclick="cInsertAtTail()">Tail</button></div>
-                                <div class="col"><button type="button" class="btn btn-info btn-block" onclick="cInsertAt()">Random/N</button></div>
+                                <div class="col m-1"><button type="button" class="btn btn-info btn-block" onclick="cInsertAtBeginning()">Beginning</button></div>
+                                <div class="col m-1"><button type="button" class="btn btn-info btn-block" onclick="cInsertAtTail()">Tail</button></div>
+                                <div class="col m-1"><button type="button" class="btn btn-info btn-block" onclick="cInsertAt()">Nth</button></div>
+                                <div class="col m-1"><button type="button" class="btn btn-info btn-block" onclick="cInsertAt()">Random</button></div>
                         </div>
                     </div>
                     <!-- Delete -->
@@ -60,19 +61,22 @@
                                 </div>
                                 <input id="deleteNode" type="text" class="form-control">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon1">Position</span>
+                                    <span class="input-group-text" id="basic-addon1">Nth</span>
                                 </div>
                                 <input id="deletePosition" type="text" class="form-control">
                             </div>
-                            <div class="col"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteBeginning()">Beginning</button></div>
-                            <div class="col"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteTail()">Tail</button></div>
-                            <div class="col"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteNode()">Node/N</button></div>
+                            <div class="col m-1"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteBeginning()">Beginning</button></div>
+                            <div class="col m-1"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteTail()">Tail</button></div>
+                            <div class="col m-1"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteNode()">Nth</button></div>
+                            <div class="col m-1"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteNode()">Node</button></div>
+                            <div class="col m-1"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteNodes()">Nodes</button></div>
+                            <div class="col m-1"><button type="button" class="btn btn-danger btn-block" onclick="cDeleteAll()">All</button></div>
                         </div>
                     </div>
                 </div> 
                 <div class="row">
                     <!-- Search -->
-                    <div class="col mt-5">
+                    <div class="col mt-2">
                         <div class="row">
                             <div class="alert alert-success container-fluid" role="alert">
                                 Search

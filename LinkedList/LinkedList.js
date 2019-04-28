@@ -73,11 +73,14 @@ class LinkedList{
     }
 
     search(data){
-        // let position = this.toArray().indexOf(data)+1;
-        let position = getAllIndexes(this.toArray(), data);
+        let position = [];
+        this.toArray().map((e, index)=>{
+            if(e==data){
+                position.push(index+1);
+            }
+        });
 
         this.hintMsg(`${data} at ${position}th`);
-
         return position;
     }
 
@@ -113,24 +116,56 @@ class LinkedList{
         this.hintMsg(`Delete List Tail Node`)
     }
 
-    deleteNode(data){
+    deleteNode(data, position= null){
         if(this.head == null){
             return null;
         }
-        if(data == this.head.data){
-            this.deleteHead;
-        }
-        let currentNode = this.head;
-        while(currentNode.next.data != data){
-            currentNode = currentNode.next;
-            if(currentNode.next == null){
-                return `Can't not find the ${data}`
+        if(position){
+            // Delete specific position node
+            if(position ==1){
+                this.deleteHead();
+            }else if(position == this.size){
+                this.deleteTail();
+            }else{
+                let currentNode = this.head;
+                for(let i=2; i<position; i++){
+                    currentNode = currentNode.next;
+                }
+                deta = currentNode.next.deta; //data delete
+                currentNode.next = currentNode.next.next;
             }
+        }else{
+            // Delete first node with the data
+            if(data == this.head.data){
+                this.deleteHead();
+            }else{
+                let currentNode = this.head;
+                while(currentNode.next.data != data){
+                    console.log('currentNode:', currentNode)
+                    currentNode = currentNode.next;
+                    if(currentNode.next == null){
+                        return `Can't not find the ${data}`
+                    }
+                }
+                currentNode.next = currentNode.next.next;
+            }
+            this.size--;
         }
-        currentNode.next = currentNode.next.next;
-        this.size--;
-
         this.hintMsg(`Delete Node: ${data}`)
+    }
+
+    deleteNodes(data){
+        if(this.head == null){
+            return null;
+        }
+        let arr =[];
+        this.toArray().map((e)=>{
+            if(e != data){
+                arr.push(e);
+            }
+        });
+
+        this.fromArray(arr);
     }
 
     // Array method
@@ -145,6 +180,7 @@ class LinkedList{
     }
 
     fromArray(arr){
+        this.clear();
         arr.forEach((e)=>{
             this.insertAtTail(e) 
         });
@@ -153,17 +189,18 @@ class LinkedList{
     reverse(){
         let arr = this.toArray();
         this.clear();
-        console.log('\nStart reverse:')
+        console.log('\nStart reverse:');
         arr.forEach((e)=>{
-            this.insertAtBeginning(e) 
+            this.insertAtBeginning(e);
         });
-        this.hintMsg('Reverse List')
+        this.hintMsg('Reverse List');
     }
 
     //clear lsit
     clear(){
         this.head = null;
         this.size = 0;
+        this.hintMsg('List clear!');
     }
 
     // Test Msg
@@ -173,21 +210,18 @@ class LinkedList{
     }
 };
 
-function getAllIndexes(arr, val) {
-    let indexes = [], i = -1;
-    while ((i = arr.indexOf(val, i+1)) != -1){
-        indexes.push(i+1);
-    }
-    return indexes;
-}
-
 // create init list
 let list = new LinkedList();
 
 // test
+let testArr= ['A', 'B', 'C', 'D', 'E'];
+list.fromArray(testArr);
 list.insertAtBeginning('A');
+list.insertAtBeginning('N');
 list.insertAtBeginning('A');
+list.insertAtBeginning('N');
 list.insertAtBeginning('A');
+list.insertAtBeginning('B');
 list.search('A');
 list.clear()
 
@@ -248,14 +282,40 @@ function cDeleteTail(){
 
 function cDeleteNode(){
     let deleteNode = document.getElementById('deleteNode');
+    let deletePosition = document.getElementById('deletePosition');
+
     if(deleteNode.value){
         list.deleteNode(deleteNode.value);
         drawGraph();
         deleteNode.value='';
     }else{
+        if(deletePosition.value){
+            list.deleteNode(deleteNode.value, deletePosition.value);
+            drawGraph();
+            deleteNode.value='';
+            deletePosition.value='';
+        }else{
+            console.log('Node or Position doesn,t set');
+        }
+        
+    }  
+}
+
+function cDeleteNodes(){
+    let deleteNode = document.getElementById('deleteNode');
+
+    if(deleteNode.value){
+            list.deleteNodes(deleteNode.value);
+            drawGraph();
+            deleteNode.value=''; 
+    }else{
         console.log('Node doesn,t set');
-    }
-    
+    }  
+}
+
+function cDeleteAll(){
+    list.clear();
+    drawGraph();
 }
 
 function cSearchNode(){
@@ -268,6 +328,8 @@ function cSearchNode(){
         console.log('Node doesn,t set');
     }
 }
+
+
 
 
 function drawGraph(){
