@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Primality Test</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="Unique-Paths-Problem.js"></script>
+    </head>
+    <header>
+        <div class="container-fluid mt-5">
+            <h1 class="text-center display-4 m-3">Unique-Paths-Problem</h1>
+        </div>
+    </header>
+    <body>
+        <div class="container" style="width:50vw">
+            <table id='graph'></table>
+        </div>
+        <div class="container mt-2" style="width:50vw">
+            <h5 id="inputShow">Input example: 3, 2</h5>
+            <h5 id="outputShow">Output: 3</h5>
+            <div class="input-group mb-3">
+                <input class="form-control" id="inputM" type="number" min="1">
+                <input class="form-control" id="inputN" type="number" min="1">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-primary" onclick="clickToCalOutput()">OK</button> 
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    table{margin: 0 auto;}
+    tr{border-radius:3px}
+    td{width: 10vw; height: 5vw;  border: solid white 2px; background: #fab1a0; border-radius:3px}
+    .head{
+        background: #ffeaa7;
+    }
+    .tail{
+        background: #ffeaa7;
+    }
+</style>
+
